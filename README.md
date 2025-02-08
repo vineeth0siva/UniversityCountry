@@ -7,7 +7,11 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 To start a local development server, run:
 
 ```bash
-ng serve
+demo:Angular\Assigment_2>ng serve
+Terminal command >>ng serve
+Ternimal command >>src/app>json-server --watch Countries.json
+Ternimal command >>src/app>json-server --watch University.json --port 3001
+
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
