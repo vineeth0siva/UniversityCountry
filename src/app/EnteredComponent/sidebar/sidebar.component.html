@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row min-vh-100">
+
+    <div class="col-12 col-md-3 col-lg-2 bg-light sidebar-container"
+      [ngStyle]="{'display': (isSidebarOpen || innerWidth) ? 'block' : 'none'}">
+
+      <aside class="sidebar shadow h-100">
+        <div class="sidebar-header p-3 bg-light">
+          <h4 class="mb-0">DashBoard Country</h4>
+        </div>
+        <div class="sidebar-content">
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2" (click)="changecolor($event)" [ngClass]="{'active':activeItem=='home'}">
+              <a class="nav-link d-flex align-items-center p-3 text-primary" name="home" id="home">
+                <mat-icon>list</mat-icon>
+                <span id="home">List Country</span>
+              </a>
+            </li>
+            <li class="nav-item mb-2 cursor-pointer" (click)="changecolor($event)"
+              [ngClass]="{'active':activeItem=='add'}">
+              <a class="nav-link d-flex align-items-center p-3">
+                <span class="material-icons me-2">add</span>
+                <span id="add">Add Country</span>
+              </a>
+            </li>
+            <li class="nav-item mb-2 logout">
+              <a class="nav-link d-flex align-items-center p-3 text-white" (click)="logout()"
+                [ngClass]="{'logout':activeItem=='logout'}">
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <div class="col-12 col-md-9 col-lg-10 mt-5 ms-auto">
+      <div class="p-4">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="col-12 col-md-9 col-lg-10 ">
+            <div class="p-4">
+              <div class="btn-group " style="z-index: 1000;">
+                <button type="button" (click)="toggleDropdown()" class="btn btn-danger dropdown-toggle"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  SORT
+                </button>
+                <ul class="dropdown-menu" [ngClass]="{'show': isDropdownOpen}">
+                  <li class="dropdown-item" (click)="AtoZ()">A-Z</li>
+                  <li class="dropdown-item" (click)="ZtoA()">Z-A</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row container-fluid ">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+              <div class="col d-flex" *ngFor="let item of paginatedCountries"> 
+                <div class="card shadow-sm h-100 d-flex flex-column"> 
+                  <img [src]="item.flag ? item.flag : 'https://www.svgrepo.com/download/398539/unknown-flag.svg'"
+                    class="card-img-top" alt="Country flag">
+                  <div class="card-body text-center d-flex flex-column flex-grow-1">
+                    <h5 class="card-title mb-2">{{ item.name }}</h5>
+                    <p class="card-text mt-auto"> 
+                      <span class="badge bg-primary">
+                        <i class="bi bi-telephone me-1"></i>{{ item.phoneCode }}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pagination-container d-flex justify-content-center mt-3">
+
+              <button class="btn btn-outline-primary" (click)="onPageChange(currentPage - 1)"
+                [disabled]="currentPage === 1">
+                Previous
+              </button>
+
+              <button *ngIf="currentPage > 1" class="btn btn-outline-primary " (click)="onPageChange(currentPage - 1)">
+                {{ currentPage - 1 }}
+              </button>
+
+              <button class="btn btn-outline-primary mx-1 active">
+                {{ currentPage }}
+              </button>
+
+              <button *ngIf="currentPage < totalPages" class="btn btn-outline-primary mx-1"
+                (click)="onPageChange(currentPage + 1)">
+                {{ currentPage + 1 }}
+              </button>
+
+              <button class="btn btn-outline-primary" (click)="onPageChange(currentPage + 1)"
+                [disabled]="currentPage === totalPages">
+                Next
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>

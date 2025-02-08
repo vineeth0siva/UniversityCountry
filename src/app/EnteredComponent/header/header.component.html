@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm py-4">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="logoimage.png" class="img-fluid rounded-circle" alt="Logo" style="width: 80px; justify-content:center;align-item:center;display:flex">
+    </a>
+    <button class="navbar-toggler border-0" type="button" (click)="toggleNavbar()" aria-label="Toggle navigation">
+      <span class="material-icons">apps</span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': isNavbarOpen }" id="navbar">
+      
+      <form class="d-flex mx-auto w-75">
+        <div class="input-group">
+          <input type="search"  class="form-control w-100 rounded-pill p-2" placeholder="Search..."  
+          name="search"  required [(ngModel)]="search" (input)="onEnter()" (keyup.enter)="closing()" >
+        </div>
+      </form>
+
+      <ul class="navbar-nav ms-auto align-items-center mt-3 mt-lg-0 mr-2">
+        <li class="nav-item mx-1">
+          <a class="nav-link btn btn-light rounded-circle d-flex flex-column align-items-center p-2">
+            <span class="material-icons fs-1 p-2">home</span>
+            <small>Home</small>
+          </a>
+        </li>
+        <li class="nav-item mx-1 px-2 ms-2">
+          <a  class="nav-link btn btn-light rounded-circle d-flex flex-column align-items-center p-2" 
+            (click)="changes()">
+            <span class="material-icons fs-1 text-danger py-2">language</span>
+            <small class="text-white">{{ whichone ? 'COUNTRY' : 'UNIVERSITY' }}</small>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+@if(whichone){
+  <app-sidebar [isSidebarOpen]="isSidebarOpen"(itemClicked)="onSidebarToggle($event)"></app-sidebar>
+}
+@else{
+  <app-university-home [isSidebarOpen]="isSidebarOpen" (togglebar)="onSidebarToggle($event)"></app-university-home>
+}
+

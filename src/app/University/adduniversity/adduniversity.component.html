@@ -1,0 +1,33 @@
+
+    <div  class="container-fluid">
+        <div class="border border-info">
+            <h1 class="text-center text-secondary m-3"> ADD A NEW UNIVERSITY</h1>
+            <div>
+                <form #form="ngForm" class="p-5" (ngSubmit)="form.valid && onsubmit()">
+                    <div class="mb-3">
+                        <label for="universityname" class="form-label">UNIVERSITY NAME</label>
+                        <input type="text" class="form-control" name="name" #name="ngModel" required [(ngModel)]="userform.name">
+                        <span *ngIf="name.errors?.['required'] && name.dirty" class="text-danger">Name is Required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="universityname"class="form-label">COUNTRY</label>
+                        <input type="text"class="form-control" name="country" #country="ngModel" required [(ngModel)]="userform.country">
+                        <span *ngIf="country.errors?.['required'] && country.dirty " class="text-danger">Country is Required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="universityname" class="form-label">Description Link</label>
+                        <input type="url" class="form-control" name="web_pages" #web_pages="ngModel" required [(ngModel)]="userform.web_pages">
+                        <span *ngIf="web_pages.errors?.['required'] && web_pages.dirty " class="text-danger">url is Required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="universityname" class="form-label">Description Link</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" name="description" #description="ngModel" required [(ngModel)]="userform.description"></textarea>
+                        <span *ngIf="description.errors?.['required'] && description.dirty " class="text-danger">Description is Required</span>
+                    </div>
+                    <div class="d-grid ">
+                        <button type="submit" class="btn btn-outline-secondary py-2">submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

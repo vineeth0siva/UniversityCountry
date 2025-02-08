@@ -1,0 +1,21 @@
+@media (max-width:767.98px) {
+  .sidebar-open{
+      transform: translateY(0);
+      margin-top: 28px;
+  }
+}
+li{
+  cursor: pointer;
+}
+.active{
+  background-color: aquamarine;
+}
+.logout{
+  cursor: pointer;
+  background-color: tomato;
+  color: white;
+}
+.logout:hover{
+  color: tomato;
+  background-color: thistle;
+}

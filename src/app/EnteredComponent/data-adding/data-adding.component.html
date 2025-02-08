@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="w-100 border border-info border-3 p-3 ">
+        <div class="text-danger text-center" [ngClass]="{'show': exist}">Data Already Exist</div>
+
+        <h2 class="text-center">𝓐𝓭𝓭 𝓪 𝓒𝓸𝓾𝓷𝓽𝓻𝔂 </h2>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="w-75 p-3">
+              <label for="sortname" class="form-label">𝚂H𝙾𝚁𝚃 𝙽𝙰𝙼𝙴</label>
+              <input type="text" name="sortname" formControlName="sortname" class="form-control">
+              <span></span>
+            </div>
+            <div class="w-75 p-3">
+              <label for="name" class="form-label">𝙽𝙰𝙼𝙴</label>
+              <input type="text" name="name" formControlName="name" class="form-control" placeholder="INDIA">
+              <span></span>
+            </div>
+            <div class="w-75 p-3">
+              <label for="countrycode" class="form-label">𝙲𝙾𝚄𝙽𝚃𝚁𝚈 𝙲𝙾𝙳𝙴</label>
+              <input type="text" name="countrycode" formControlName="countrycode" class="form-control">
+              <span></span>
+            </div>
+            <div class="w-75 p-3">
+              <label for="phoneCode" class="form-label">𝙿𝙷𝙾𝙽𝙴 𝙲𝙾𝙳𝙴</label>
+              <input type="text" name="phoneCode" formControlName="phoneCode" class="form-control">
+              <span></span>
+            </div>
+            <div class="w-75 d-grid gap-2">
+              <button class="btn btn-outline-primary ms-2" type="submit">
+                {{ updatebutton ? 'Update' : 'Submit' }}
+              </button>
+            </div>
+          </form>
+          
+    </div>
+   
+</div>

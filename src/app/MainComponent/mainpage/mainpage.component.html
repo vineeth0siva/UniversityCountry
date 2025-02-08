@@ -1,0 +1,76 @@
+<div class="position-relative w-100">
+    <app-navbar></app-navbar>
+</div>
+<div class="container-fluid px-3 px-sm-4 px-md-5" style="margin-top: 90px;">
+    <div class="row shadow-lg mx-0 position-relative" 
+         style="min-height: 89vh; border-radius: 20px; overflow: hidden; background-image: url('https://th.bing.com/th/id/OIP.E0_Lln75pNlwWY-I_EHmawHaEo?w=2560&h=1600&rs=1&pid=ImgDetMain'); 
+         background-size: cover; background-position: center;">
+        
+      
+        <div class="position-absolute top-0 start-0 w-100 h-100" 
+             style="background: linear-gradient(45deg, rgba(0,0,0,0.4), rgba(0,0,0,0.1)); pointer-events: none;">
+        </div>
+        
+   
+        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center py-5 position-relative" 
+             style="background-color: rgba(112, 165, 147, 0.95); 
+                    border-radius: 0px 10px 100px 10px; 
+                    backdrop-filter: blur(5px);
+                    transition: all 0.3s ease;">
+            
+            <div class="text-white px-3 px-sm-4 px-md-5 text-center text-lg-start"
+                 style="animation: 0.8s ease-out 0s 1 slideIn;">
+                
+                <p class="text-uppercase text-light fw-bold mb-3 pb-2 d-inline-block" 
+                   style="letter-spacing: 2px; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                    Welcome all
+                </p>
+                
+                <h1 class="display-4 text-light display-md-3 fw-bold mb-4" 
+                    style="text-shadow: 2px 4px 6px rgba(0,0,0,0.2); 
+                           font-size: calc(2rem + 1.5vw);">
+                    University and Country Generation
+                </h1>
+                
+                <h5 class="lead opacity-90 mb-4" 
+                    style="line-height: 1.6; 
+                           font-size: calc(1rem + 0.3vw);
+                           text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+                    With the rise of digital currencies, the concept of a universal payment
+                    method is becoming increasingly achievable, bridging borders and simplifying global transactions.
+                </h5>
+                
+                <button class="btn btn-light btn-lg px-4 mt-3 shadow-sm" 
+                        [routerLink]="'/login'"
+                        style="transition: all 0.3s ease;
+                               background: linear-gradient(45deg, #fff, #f8f9fa);
+                               border: none;"
+                        onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)'"
+                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)'">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        
+        <div class="col-12 col-lg-6 d-flex justify-content-center p-4 p-lg-5 b-1">
+            <img src="https://www.teced.com/wp-content/uploads/shutterstock_303486215.jpg" 
+                 alt="Image Error" 
+                 class="img-fluid bg-danger p-3 shadow-lg" 
+                 style="height: 90%;
+                        width: 60%;
+                        border-radius: 20px 10px 0px 50px;
+                        transition: all 0.5s ease;
+                        border: 8px solid rgba(255,255,255,0.1);"
+                 onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 15px 40px rgba(0,0,0,0.2)'"
+                 onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.15)'">
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+</style>

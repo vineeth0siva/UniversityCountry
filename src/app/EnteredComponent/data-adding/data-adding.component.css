@@ -1,0 +1,10 @@
+.text-danger {
+    display: none;
+  }
+  
+  .text-danger.show {
+    display: block;
+    color: red;
+    text-align: center;
+  }
+  

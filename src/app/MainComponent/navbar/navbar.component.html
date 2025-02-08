@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg p-3 shadow-sm fixed-top navbar-light bg-white">
+    <div class="container-fluid">
+      <div class="row w-100 align-items-center">
+        <div class="col-6 d-flex justify-content-start">
+          <a class="navbar-brand" href="#">
+            <img src="./logoimage.png" class="rounded-circle ms-5" alt="Shastha Logo" height="70" style="background-color: aliceblue;">
+          </a>
+        </div>
+  
+       
+        <div class="col-6 d-flex justify-content-end align-items-center">
+         
+          <button class="navbar-toggler border-0 position-fixed shadow-none" type="button" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon "></span>
+          </button>
+  
+
+          <div [ngClass]="{'collapse': isNavibarCollapsed, 'navbar-collapse': true}" id="navbarNav">
+            <ul class="navbar-nav ms-auto p-3 headers">
+              <li class="nav-item px-2">
+                <a class="nav-link fw-semibold hover-overlay rounded-3 px-3 py-2" [routerLink]="'/Home'">𝓗𝓸𝓶𝓮</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link fw-semibold hover-overlay rounded-3 px-3 py-2" [routerLink]="'/aboutus'">𝓐𝓫𝓸𝓾𝓽</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link fw-semibold hover-overlay rounded-3 px-3 py-2" [routerLink]="'/contactus'">𝓒𝓸𝓷𝓽𝓪𝓬𝓽</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link fw-semibold hover-overlay b-1 rounded-3 px-3 py-2" [routerLink]="'/login'">𝓛𝓸𝓰𝓘𝓷</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

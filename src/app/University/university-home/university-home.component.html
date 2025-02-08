@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="row min-vh-100">
+
+       
+        <div class="col-12 col-md-3 col-lg-2 bg-light sidebar-container"
+            [ngStyle]="{'display': (isSidebarOpen || innerWidth) ? 'block' : 'none'}">
+            <aside class="sidebar shadow h-100">
+                <div class="sidebar-header p-3 bg-light">
+                    <h4 class="mb-0">Dashboard University</h4>
+                </div>
+                <div class="sidebar-content">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2" [routerLink]="'/home'" (click)="clickworked()">
+                            <a class="nav-link d-flex align-items-center p-3 text-primary">
+                                <mat-icon>list</mat-icon>
+                                <span>List University</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link d-flex align-items-center p-3" 
+                               [routerLink]="['/adduniversity']" 
+                               routerLinkActive="active"
+                               (click)="clickworked()">
+                                <span class="material-icons me-2">add</span>
+                                <span>Add University</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item mb-2">
+                            <a class="nav-link d-flex align-items-center p-3 logout" (click)="logout()">
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        
+        <div class="col-12 col-md-9 col-lg-10 mt-5 ms-auto">
+            <div class="p-4">
+                <router-outlet></router-outlet>
+            </div>
+
+            
+            <div class="row container-fluid mt-5">
+                <div *ngFor="let item of data; let i = index" class="col-lg-4 col-md-5 col-sm-12 mb-4">
+                    <div class="card h-100 shadow-sm hover-shadow transition">
+                        <div class="card-header bg-primary bg-gradient text-white py-4">
+                            <h5 class="card-title mb-2 text-center">{{ item.country }}</h5>
+                            <p class="text-center mb-0" *ngIf="item['state-province']">
+                                <small>{{ item['state-province'] }}</small>
+                            </p>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="card-subtitle mb-3 text-secondary fw-bold">{{ item.name }}</h6>
+                            <p class="text-muted small mb-3">
+                                <i class="bi bi-globe2 me-2"></i>{{ item.domains?.[0] }}
+                            </p>
+                            <a *ngIf="item?.web_pages && item.web_pages.length > 0" [href]="item.web_pages[0]" 
+                               class="btn btn-outline-primary mb-3 mt-auto text-decoration-none" 
+                               target="_blank">
+                                <i class="bi bi-globe me-2"></i>Visit Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="d-flex justify-content-between ms-2 align-items-center text-center">
+                    <button class="btn btn-outline-info w-25 mr-3 d-flex align-items-center justify-content-center"
+                        (click)="prevPage()" [disabled]="currentpage === 1">
+                        <mat-icon class="me-2">keyboard_arrow_left</mat-icon>
+                        Previous {{currentpage}}
+                    </button>
+                    <button class="btn btn-outline-primary w-25 ms-3 d-flex align-items-center justify-content-center"
+                        (click)="nextPage()">
+                        Next {{currentpage}}
+                        <mat-icon class="ms-2">keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

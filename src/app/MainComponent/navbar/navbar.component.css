@@ -1,0 +1,27 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a:hover{
+    color: rgb(241, 241, 75);
+}
+body{
+    position: relative;
+}
+.headers{
+    font-size: 26px;
+}
+
+.navbar-collapse {
+    transition: height 0.5s ease; 
+    overflow: hidden;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  @media (max-width:768px){
+    .headers{
+        font-size: 18px;
+    }
+  }
